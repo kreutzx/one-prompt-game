@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Neon Comet Dodge</title>
+<style>
+  html, body {
+    margin: 0; padding: 0; height: 100%;
+    background: #05060f;
+    overflow: hidden;
+    font-family: "Segoe UI", system-ui, sans-serif;
+    color: #eaf2ff;
+  }
+  #wrap { position: relative; width: 100vw; height: 100vh; }
+  canvas { display: block; width: 100%; height: 100%; }
+  #hud {
+    position: absolute; top: 18px; left: 24px; right: 24px;
+    display: flex; justify-content: space-between; align-items: flex-start;
+    pointer-events: none; text-shadow: 0 2px 10px rgba(0,0,0,.8);
+  }
+  #hud .score { font-size: 34px; font-weight: 700; letter-spacing: 1px; }
+  #hud .stars { font-size: 24px; color: #ffd94d; font-weight: 600; }
+  #hud .timebox { text-align: right; }
+  #hud .time { font-size: 34px; font-weight: 700; }
+  #timebar {
+    width: 260px; height: 10px; margin-top: 6px;
+    background: rgba(255,255,255,.15); border-radius: 5px; overflow: hidden;
+  }
+  #timefill {
+    height: 100%; width: 100%;
+    background: linear-gradient(90deg, #37f2ff, #7a5cff);
+    border-radius: 5px;
+  }
+  #banner {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; pointer-events: none;
+    text-shadow: 0 4px 24px rgba(0,0,0,.9);
+  }
+  #banner h1 {
+    margin: 0 0 10px; font-size: 84px; letter-spacing: 3px;
+    background: linear-gradient(90deg, #37f2ff, #b06bff, #ffd94d);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  #banner p { margin: 4px 0; font-size: 30px; color: #cfe3ff; }
+  #banner .small { font-size: 22px; color: #8fa8cc; }
+  .hidden { display: none !important; }
+</style>
+</head>
+<body>
+<div id="wrap">
+  <canvas id="game" width="1920" height="1080"></canvas>
+  <div id="hud">
+    <div>
+      <div class="score" id="score">SCORE 0</div>
+      <div class="stars" id="stars">&#9733; 0</div>
+    </div>
+    <div class="timebox">
+      <div class="time" id="time">60</div>
+      <div id="timebar"><div id="timefill"></div></div>
+    </div>
+  </div>
+  <div id="banner">
+    <h1>NEON COMET DODGE</h1>
+    <p>Dodge the asteroids. Grab the stars. Survive 60 seconds.</p>
+    <p class="small">Move with the mouse or arrow keys &mdash; press SPACE to start</p>
+  </div>
+</div>
+<script src="game.js"></script>
+</body>
+</html>
